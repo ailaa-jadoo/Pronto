@@ -8,7 +8,7 @@ export const Skills = () => {
     <>
       {/* <div className="py-20 flex flex-col lg:flex-row items-center justify-between w-full mx-auto px-20"> */}
       <div className="py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mx-auto px-20">
-        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative">
+        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative">
           <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
@@ -36,7 +36,7 @@ export const Skills = () => {
           </div>
         </div>
         
-        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative">
+        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative">
           <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
@@ -64,7 +64,7 @@ export const Skills = () => {
           </div>
         </div>
         
-        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative">
+        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative">
           <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
@@ -110,7 +110,7 @@ const Card = ({
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative"
+        className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative"
       >
         <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
         <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />

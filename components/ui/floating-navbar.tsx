@@ -38,6 +38,7 @@ export const FloatingNav = ({
           setVisible(true);
         } else {
           setVisible(false);
+          setClickedIndex(NaN);
         }
       }
     }
@@ -76,7 +77,7 @@ export const FloatingNav = ({
               animate={{
                 borderColor: clickedIndex === idx ? 'rgba(0, 0, 0, 0.2)' : 'transparent',
                 backgroundColor: clickedIndex === idx ? '#000' : 'transparent',
-                color: clickedIndex === idx ? '#fff' : '#666',
+                color: clickedIndex === idx ? '#fff' : '#888',
               }}
               initial={{ color: '#666' }}
               className={cn(
@@ -85,12 +86,12 @@ export const FloatingNav = ({
               )}
               transition={{ duration: 0.3 }}
             >
-              <span className="hidden sm:block text-sm">{navItem.name}</span>
+              <span className="block text-sm">{navItem.name}</span>
               {clickedIndex === idx && (
                 <motion.span
-                  className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px"
+                  className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-[2px]"
                   layoutId="underline"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 0.5 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
                 />

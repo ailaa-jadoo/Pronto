@@ -7,6 +7,7 @@ import WorkEx from "@/components/WorkEx";
 import { Skills } from "@/components/Skills";
 import { Navbar } from "@/components/Navbar";
 import Work from "@/components/Work";
+import {Test} from "@/components/Test";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <WorkEx />
           <Skills />
           <Work />
+          <Test />
         </main>
       </NextThemesProvider>
     </NextUIProvider>

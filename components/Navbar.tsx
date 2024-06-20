@@ -17,6 +17,10 @@ export function Navbar() {
       name: "Contact",
       link: "#skills",
     },
+    {
+      name: "Projects",
+      link: "#projects",
+    },
   ];
 
   return (

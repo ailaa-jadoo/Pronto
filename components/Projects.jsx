@@ -1,32 +1,49 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "framer-motion";
-import CloseIcon from '@mui/icons-material/Close';
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  Card,
+  CardFooter,
+  Image,
+  Button,
+  CardBody,
+} from "@nextui-org/react";
 
 const items = [
   {
     id: 1,
     title: "Title 1",
     subtitle: "Subtitle 1",
-    data: "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias."
+    img: "https://harsh-porto.netlify.app/assets/yelp-c05c2024.png",
+    data: "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias.",
   },
   {
     id: 2,
     title: "Title 2",
     subtitle: "Subtitle 2",
-    data: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias."
+    img: "https://harsh-porto.netlify.app/assets/LL-5ae8cfb5.png",
+    data: "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias.",
   },
   {
     id: 3,
     title: "Title 3",
     subtitle: "Subtitle 3",
-    data: "3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias."
+    img: "https://harsh-porto.netlify.app/assets/movie_search-0e9e1867.png",
+    data: "3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias.",
   },
   {
     id: 4,
     title: "Title 4",
     subtitle: "Subtitle 4",
-    data: "4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias."
+    img: "https://nextui.org/images/hero-card.jpeg",
+    data: "4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias.",
+  },
+  {
+    id: 5,
+    title: "Title 5",
+    subtitle: "Subtitle 5",
+    img: "https://nextui.org/images/hero-card.jpeg",
+    data: "5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt nisi tempore aliquam eligendi ducimus consequuntur, corrupti iste consequatur veniam, aspernatur explicabo cumque recusandae modi, tempora nam pariatur labore dolorum alias.",
   },
 ];
 
@@ -50,16 +67,16 @@ export const Projects = () => {
     };
 
     if (selectedId) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [selectedId, closeModal]);
 
   return (
-    <div className="h-screen">
+    <div className={`h-full mb-12 px-4`}>
       <motion.div
         className="text-4xl font-bold dark:text-white text-black mt-20 mb-10"
         id="projects"
@@ -74,26 +91,49 @@ export const Projects = () => {
       </motion.div>
 
       <div className="flex justify-center items-center">
-        <motion.div layout className="grid grid-cols-5 gap-5 w-full">
+        <motion.div layout className="grid grid-cols-3 lg:grid-cols-5 lg:gap-5 gap-10 w-full">
           <AnimatePresence>
-            {items.map((item) => (
-              selectedId === null || item.id !== selectedId ? (
+            {items.map((item) => {
+              const itemRef = useRef(null);
+              const itemInView = useInView(itemRef, { once: true });
+
+              return selectedId === null || item.id !== selectedId ? (
                 <motion.div
                   layout
                   key={item.id}
-                  layoutId={`container-${item.id}`}
-                  className={`bg-gray-600 p-8 rounded-lg shadow-lg text-center h-40 cursor-pointer ${
-                    (item.id === 2 || item.id === 3) ? 'col-span-3' : 'col-span-2'
+                  ref={itemRef}
+                  layoutId={`card-${item.id}`}
+                  className={`${
+                    item.id === 2 || item.id === 3 ? "col-span-3" : "lg:col-span-2 col-span-3"
                   }`}
                   onClick={() => setSelectedId(item.id)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={itemInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
                 >
-                  <motion.h5 layoutId={`subtitle-${item.id}`}>{item.subtitle}</motion.h5>
-                  <motion.h2 layoutId={`title-${item.id}`}>{item.title}</motion.h2>
+                  <Card isFooterBlurred radius="lg" className="border-none h-full max-h-[400px]">
+                    <Image
+                      alt="Project image"
+                      className="md:object-cover"
+                      src={item.img}
+                    />
+                    <CardFooter className="cursor-pointer justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+                      <p className="text-tiny text-white/80">{item.title}</p>
+                      <Button
+                        className="text-tiny text-white bg-black/20"
+                        variant="flat"
+                        color="default"
+                        radius="lg"
+                        size="sm"
+                      >
+                        Click to know more!!!
+                      </Button>
+                    </CardFooter>
+                  </Card>
                 </motion.div>
-              ) : null
-            ))}
+              ) : null;
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -106,35 +146,63 @@ export const Projects = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
             />
             <motion.div
-              layoutId={`container-${selectedId}`}
-              className="fixed inset-0 flex items-center justify-center z-50"
-              transition={{ duration: 0.3, ease: [0.43, 0.13, 0.23, 0.96] }}
+              layoutId={`card-${selectedId}`}
+              className="fixed inset-0 flex items-center justify-center px-4 z-50"
+              transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 30 }}
             >
-              <div 
+              <Card
+                isFooterBlurred
+                radius="lg"
                 ref={modalRef}
-                className="bg-gray-600 p-8 rounded-lg shadow-lg text-center relative w-full max-w-lg max-h-[80vh] overflow-auto"
+                className="border-none bg-[#0e0e10] md:bg-transparent backdrop-blur-xl text-center relative w-full max-w-xl max-h-[80vh] overflow-auto"
               >
-                <motion.h5 layoutId={`subtitle-${selectedId}`}>{selectedItem.subtitle}</motion.h5>
-                <motion.h2 layoutId={`title-${selectedId}`}>{selectedItem.title}</motion.h2>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  {items[selectedId-1].data}
-                </motion.p>
+                <CardBody>
+                  <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
+                    <div className="relative col-span-6 md:col-span-4">
+                      <Image
+                        alt="Project image"
+                        className="object-cover"
+                        shadow="md"
+                        src={selectedItem.img}
+                      />
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2, duration: 0.3 }}
+                      className="flex flex-col col-span-6 md:col-span-8"
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex flex-col gap-0">
+                          <h5>{selectedItem.subtitle}</h5>
+                          <h2>{selectedItem.title}</h2>
+                          <p>{selectedItem.data}</p>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col mt-3 gap-1">
+                        <div className="flex justify-between">
+                          <p className="font-semibold">Visit</p>
+                          <p className="font-semibold">Github</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </CardBody>
+
                 <motion.button
-                  className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-2"
+                  className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-2 z-10"
                   onClick={closeModal}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   <CloseIcon />
                 </motion.button>
-              </div>
+              </Card>
             </motion.div>
           </>
         )}

@@ -20,7 +20,7 @@ export default function CustomizedTimeline() {
           sx={{ m: 'auto 0' }}
           align="right"
           variant="body2"
-          color="text.secondary"
+          color="white"
         >
           9:30 am
         </TimelineOppositeContent>
@@ -38,11 +38,12 @@ export default function CustomizedTimeline() {
           <Typography>Because you need strength</Typography>
         </TimelineContent>
       </TimelineItem>
+
       <TimelineItem>
         <TimelineOppositeContent
           sx={{ m: 'auto 0' }}
           variant="body2"
-          color="text.secondary"
+          color="white"
         >
           10:00 am
         </TimelineOppositeContent>
@@ -60,6 +61,7 @@ export default function CustomizedTimeline() {
           <Typography>Because it&apos;s awesome!</Typography>
         </TimelineContent>
       </TimelineItem>
+
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector />
@@ -75,6 +77,7 @@ export default function CustomizedTimeline() {
           <Typography>Because you need rest</Typography>
         </TimelineContent>
       </TimelineItem>
+      
       <TimelineItem>
         <TimelineSeparator>
           <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />

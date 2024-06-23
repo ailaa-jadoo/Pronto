@@ -6,7 +6,7 @@ export function Contact() {
     <div className="">
       <div className=" w-full relative">
         <div className="absolute inset-0 h-full w-full transform scale-[0.80] rounded-full" />
-        <div className="relative shadow-xl bg-gray-900 border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
+        <div className="relative shadow-xl border border-gray-800  px-4 py-8 h-full overflow-hidden rounded-2xl flex flex-col justify-end items-start">
           <div className="h-5 w-5 rounded-full border flex items-center justify-center mb-4 border-gray-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,11 +24,11 @@ export function Contact() {
             </svg>
           </div>
 
-          <h1 className="font-bold text-xl text-white mb-4 relative z-50">
+          <h1 className="font-bold text-xl text-white mb-4 relative">
             Meteors because they&apos;re cool
           </h1>
 
-          <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
+          <p className="font-normal text-base text-slate-500 mb-4 relative">
             I don&apos;t know what to write so I&apos;ll just paste something
             cool here. One more sentence because lorem ipsum is just
             unacceptable. Won&apos;t ChatGPT the shit out of this.

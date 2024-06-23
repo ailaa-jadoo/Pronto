@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <NextUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
-        <main className="dark text-foreground max-w-[1400px] mx-auto mb-10">
+        <main className="dark text-foreground max-w-[1400px] mx-auto mb-10 px-4 md:px-0">
           <Navbar />
           <Hero />
           <WorkEx />

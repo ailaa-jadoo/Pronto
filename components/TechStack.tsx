@@ -22,16 +22,27 @@ export function TechStack() {
         Skills
       </motion.div>
 
-      <Card>
-        {/* <CardTitle>Damn good card</CardTitle>
+
+      <motion.div
+        className="p-4 md:p-8 overflow-hidden h-full relative flex items-center justify-center"
+        ref={ref}
+        style={{
+          transform: isInView ? "none" : "opacity:1",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+        }}
+      >
+        <Card>
+          {/* <CardTitle>Damn good card</CardTitle>
       <CardDescription>
         A card that showcases a set of tools that you use to create your
         product.
       </CardDescription> */}
-        <CardSkeletonContainer>
-          <Skeleton />
-        </CardSkeletonContainer>
-      </Card>
+          <CardSkeletonContainer>
+            <Skeleton />
+          </CardSkeletonContainer>
+        </Card>
+      </motion.div>
     </>
   );
 }
@@ -178,7 +189,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "w-full mx-auto p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
+        "w-full mx-auto md:p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
         className
       )}
     >
@@ -240,7 +251,7 @@ export const CardSkeletonContainer = ({
         "h-[15rem] md:h-[20rem] rounded-xl z-40",
         className,
         showGradient &&
-          "bg-neutral-300 dark:bg-[rgba(40,40,40,0.70)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
+        "bg-neutral-300 dark:bg-[rgba(40,40,40,0.70)] [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]"
       )}
     >
       {children}

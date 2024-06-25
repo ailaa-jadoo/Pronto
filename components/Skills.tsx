@@ -10,19 +10,6 @@ export const Skills = () => {
 
   return (
     <>
-      <motion.div
-        className="text-4xl font-bold dark:text-white text-black mt-20 mb-10"
-        id="skills"
-        ref={ref}
-        style={{
-          transform: isInView ? "none" : "translateX(-200px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-        }}
-      >
-        Skills
-      </motion.div>
-
       {/* <div className="py-20 flex flex-col lg:flex-row items-center justify-between w-full mx-auto px-20"> */}
       <div className="py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mx-auto">
         <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 h-[30rem] relative">

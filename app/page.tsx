@@ -9,6 +9,7 @@ import { Navbar } from "@/components/Navbar";
 import Work from "@/components/Work";
 import {Projects} from "@/components/Projects";
 import {Contact} from "@/components/Contact";
+import {TechStack} from "@/components/TechStack";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           <WorkEx />
           <Skills />
           {/* <Work /> */}
+          <TechStack />
           <Projects />
           <Contact />
         </main>

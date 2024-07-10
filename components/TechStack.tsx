@@ -9,7 +9,7 @@ export function TechStack() {
   const isInView = useInView(ref, { once: true });
   return (
     <>
-      <motion.div
+      {/* <motion.div
         className="text-4xl font-bold dark:text-white text-black mt-20 mb-10"
         id="skills"
         ref={ref}
@@ -20,7 +20,7 @@ export function TechStack() {
         }}
       >
         Skills
-      </motion.div>
+      </motion.div> */}
 
 
       <motion.div
@@ -33,11 +33,6 @@ export function TechStack() {
         }}
       >
         <Card>
-          {/* <CardTitle>Damn good card</CardTitle>
-      <CardDescription>
-        A card that showcases a set of tools that you use to create your
-        product.
-      </CardDescription> */}
           <CardSkeletonContainer>
             <Skeleton />
           </CardSkeletonContainer>
@@ -189,7 +184,8 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "w-full mx-auto md:p-8 rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group",
+        // "w-full mx-auto md:p-8 group scale-110",
+        "w-full rounded-xl border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-gray-100 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]  mx-auto md:p-8 group",
         className
       )}
     >
